@@ -1,4 +1,4 @@
-FROM java:openjdk-7u65-jdk
+FROM java:openjdk-7u91-jdk 
 
 # suppress warnings in apt-get that TERM is not set
 ENV DEBIAN_FRONTEND=noninteractive
@@ -10,9 +10,9 @@ RUN apt-get update && apt-get install -y wget git curl zip bzip2 vim
 RUN apt-get clean
 
 RUN mkdir /opt/xlview
-ADD https://dist.xebialabs.com/public/community/xl-testview/1.2.2/xl-testview-server-1.2.2.zip /opt/xlview/xlviewserver.zip
+ADD https://dist.xebialabs.com/public/trial/xl-testview/xl-testview-server-1.3.2.zip /opt/xlview/xlviewserver.zip
 RUN unzip -n /opt/xlview/xlviewserver.zip -d /opt/xlview
-RUN ln -s /opt/xlview/xl-testview-server-1.2.2 /opt/xlview/xl-view-server
+RUN ln -s /opt/xlview/xl-testview-server-1.3.2 /opt/xlview/xl-view-server
 
 EXPOSE 6516
 
